@@ -1,22 +1,12 @@
-"""
+def buble_sort(lst):
+    for i in range(len(lst)):
+        swaped = False
+        for j in range(len(lst)-1):
+            if lst[j] > lst[j+1]:
+                swaped = True
+                lst[j],lst[j+1] = lst[j+1],lst[j]
+        if not swaped: break
+    return lst
 
-https://en.wikipedia.org/wiki/Bubble_sort
-
-Worst-case performance: O(N^2)
-
-"""
-
-
-def bubble_sort(arr):
-    def swap(i, j):
-        arr[i], arr[j] = arr[j], arr[i]
-
-    n = len(arr)
-    swapped = True
-    while swapped:
-        swapped = False
-        for i in range(1, n):
-            if arr[i - 1] > arr[i]:
-                swap(i - 1, i)
-                swapped = True
-    return arr
+arr = [2,5,3,1,6,9,8,7]
+print(buble_sort(arr))
